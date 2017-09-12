@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:400,700');
+
+
+h2 {
+	font-family: "Roboto Condensed", sans-serif;
+	color: #5e6774;
+	font-size: 1.8em;
+	margin-bottom: 1rem;
+}
+
+
+p {
+	font-family: "Roboto", sans-serif;
+	color: #5e6774;
+	margin-bottom: 1rem;
+}
+
+span,
+.add-cart {
+	font-family: "Roboto", sans-serif;
+	font-weight: 700;
+	color: #353f4f;
+}
+
+.clear {
+	clear: both;
+}
+
+.container {
+	width: 1170px;
+	padding-right: 1rem;
+	padding-left: 1rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#prateleira {
+	padding-top: 3em;
+	padding-bottom: 3em;
+}
+
+.descricao {
+	width: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical; 
+	color: #303132;
+	margin-bottom: 1.5rem;
+	line-height: 1.2rem;
+}
+
+
+.item {
+	width: 309px;
+	height: 382px;
+	box-sizing: border-box;
+	border: 1px solid rgb(237, 234, 234);
+	transition: .3s;
+}
+
+.item:hover {
+	background: linear-gradient(rgb(244, 244, 244), rgb(255, 255, 255));
+	height: 460px;
+}
+
+.item img {
+	width: 210px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.item figcaption {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.item .add-cart {
+	text-decoration: none;
+	display: block;
+	opacity: 0;
+	font-size: 1.2rem;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 1rem;
+	padding: 1rem;
+	border: 1px solid rgb(237, 234, 234);
+	transition: .3s;
+}
+
+.item:hover .add-cart {
+	opacity: 1;
+}
+
+.item .add-cart:hover {
+	border-left: 10px solid #ff6600;
+	color: #1f2125;
+}
+
+.item .add-cart:hover .material-icons {
+	color: #ff6600;
+	transition: .3s;
+}
+
+.vertical-center {
+	vertical-align: middle;
+}
+
+
+#visitado,
+#recomendados {
+	float: left;
+	display: inline-block;
+}
+
+.preco {
+	font-size: 1.5rem;
+}
