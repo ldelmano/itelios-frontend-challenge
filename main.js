@@ -10,11 +10,9 @@ var request = new XMLHttpRequest();
 request.open("GET", "https://raw.githubusercontent.com/ldelmano/itelios-frontend-challenge/master/products.json");
 
 
-request.addEventListener("load", function(){
+request.addEventListener("load", function(data){
 
 	var erroAjax = document.querySelector("#erro-ajax");
-
-	var html = '';
 
 	if (request.status == 200) {
 		erroAjax.classList.add("invisivel");
@@ -22,11 +20,24 @@ request.addEventListener("load", function(){
 		var resposta = request.responseText;
 		var produtos = JSON.parse(resposta);
 
-		console.log(produtos);
+		var listaRecomendados = produtos[0].data.recommendation;
 
-		produtos.forEach(function(data){
-			html += '<div id="recomendados">';
+		listaRecomendados.forEach(function(recommendation){
+			var divRecomendados = document.querySelector(".lista-recomendados");
+
+			divRecomendados.innerHTML += '<figure class="item container">' + 
+											'<img src="http:'+recommendation.imageName+'">' + 
+												'<figcaption>' + 
+													'<p class="descricao">'+recommendation.name+'</p>' +
+													'<p>Por: <span class="preco">'+recommendation.price+'</span></p>' +
+													'<p>'+recommendation.productInfo.paymentConditions+'</p>' +
+												'</figcaption>' + 
+											'<a href="#" class="add-cart">adicionar ao carrinho <i class="material-icons vertical-center">add_shopping_cart</i></a>' +
+										 '</figure>';
+			// divRecomendados.innerHTML += '<div class="clear"></div>'
 		});
+
+		divClear();
 
 	}else{
 		erroAjax.classList.remove("invisivel");
@@ -36,4 +47,10 @@ request.addEventListener("load", function(){
 });
 request.send();
 
+}
+
+function divClear(){
+		var clearDiv = document.createElement('div');
+		var recomendados = document.querySelector(".lista-recomendados");
+		recomendados.appendChild(clearDiv).classList.add("clear");	
 }

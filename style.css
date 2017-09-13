@@ -27,7 +27,7 @@ span,
 }
 
 .container {
-	width: 1170px;
+	width: 1280px;
 	padding-right: 1rem;
 	padding-left: 1rem;
 	margin-left: auto;
@@ -108,11 +108,9 @@ span,
 	vertical-align: middle;
 }
 
-
 #visitado,
 #recomendados {
 	float: left;
-	display: inline-block;
 }
 
 .preco {
