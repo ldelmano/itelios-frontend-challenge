@@ -20,8 +20,11 @@ request.addEventListener("load", function(data){
 		var resposta = request.responseText;
 		var produtos = JSON.parse(resposta);
 
+		var visitado = produtos[0].data.item;
 		var listaRecomendados = produtos[0].data.recommendation;
 
+		adicionaVisitado(visitado);
+		
 		listaRecomendados.forEach(function(recommendation){
 			var divRecomendados = document.querySelector(".lista-recomendados");
 
@@ -34,7 +37,6 @@ request.addEventListener("load", function(data){
 												'</figcaption>' + 
 											'<a href="#" class="add-cart">adicionar ao carrinho <i class="material-icons vertical-center">add_shopping_cart</i></a>' +
 										 '</figure>';
-			// divRecomendados.innerHTML += '<div class="clear"></div>'
 		});
 
 		divClear();
@@ -48,6 +50,23 @@ request.addEventListener("load", function(data){
 request.send();
 
 }
+
+function adicionaVisitado(visitado){
+	var divVisitado = document.querySelector(".prod-visitado");
+
+			divVisitado.innerHTML += '<figure class="item container">' + 
+											'<img src="http:'+visitado.imageName+'">' + 
+												'<figcaption>' + 
+													'<p class="descricao">'+visitado.name+'</p>' +
+													'<p>Por: <span class="preco">'+visitado.price+'</span></p>' +
+													'<p>'+visitado.productInfo.paymentConditions+'</p>' +
+												'</figcaption>' + 
+											'<a href="#" class="add-cart">adicionar ao carrinho <i class="material-icons vertical-center">add_shopping_cart</i></a>' +
+										 '</figure>';
+
+	console.log(visitado);			
+};
+
 
 function divClear(){
 		var clearDiv = document.createElement('div');
